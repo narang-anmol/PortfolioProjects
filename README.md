@@ -1,6 +1,4 @@
-# Portfolio Projects
-
-Anmol Narang's Portfolio
+# Anmol Narang's Portfolio
 
 Greetings and thank you for visiting my SQL portfolio! Within this repository, you'll find examples of SQL queries that I've developed both independently and as part of my journey through SQL and other data analytics courses. The projects showcased here span various domains and showcase my proficiency in extracting insights from relational databases.
 
