@@ -64,6 +64,15 @@
 	GROUP BY seat_no
 	ORDER BY booking_count DESC;
 	
+	--Seat Preference by Seat Class
+	
+	SELECT
+  	SUBSTRING(seat_no FROM LENGTH(seat_no) FOR 1) AS seat_class,
+  	COUNT(*) AS booking_count
+	FROM boarding_passes
+	GROUP BY seat_class
+	ORDER BY booking_count DESC;
+	
 --Ticket Analysis
 
 	--Distribution of Ticket Prices
@@ -81,6 +90,15 @@
 	ON TF.flight_id = FL.flight_id
 	GROUP BY flight_no
 	ORDER BY avg_ticket_price DESC;
+	
+	--Daily Breakdown of Total Bookings
+	
+	SELECT 
+    CAST(book_date AS DATE) AS booking_day,
+    COUNT(*) AS total_bookings
+	FROM bookings
+	GROUP BY booking_day
+	ORDER BY booking_day;
 	
 --Airport Insights
 
@@ -112,12 +130,11 @@
 	
 	--Distribution of Flight Delays & Cancellations
 	
-	SELECT 
-    status, COUNT(*) AS total_flights
+	SELECT status, departure_airport, COUNT(*) AS total_flights
 	FROM flights
 	WHERE status IN ('Delayed', 'Cancelled')
-	GROUP BY status
-	ORDER BY total_flights DESC;
+	GROUP BY status, departure_airport
+	ORDER BY status DESC;
 
 --Aircraft Analysis
 
@@ -147,24 +164,3 @@
 	ON TI.book_ref = BO.book_ref
 	GROUP BY passenger_id
 	ORDER BY average_amount_spent DESC;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
