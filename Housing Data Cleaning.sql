@@ -32,5 +32,8 @@
 	SET
 	propertysplitaddress = SUBSTRING(propertyaddress, 1, POSITION(',' IN propertyaddress) -1),
 	propertysplitcity = SUBSTRING(propertyaddress, POSITION(',' IN propertyaddress) +1, LENGTH(propertyaddress));
+
+
+--TO BE UPDATED
 	
 	SELECT * FROM nashvillehousing
