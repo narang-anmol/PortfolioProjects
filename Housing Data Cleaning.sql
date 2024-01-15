@@ -35,5 +35,3 @@
 
 
 --TO BE UPDATED
-	
-	SELECT * FROM nashvillehousing
